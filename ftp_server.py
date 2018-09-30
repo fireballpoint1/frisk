@@ -26,7 +26,7 @@ def main():
     #handler.passive_ports = range(60000, 65535)
 
     # Instantiate FTP server class and listen on 0.0.0.0:2121
-    address = ('127.0.0.1', 44333)
+    address = ('0.0.0.0', 8080)
     server = FTPServer(address, handler)
 
     # set a limit for connections
@@ -34,7 +34,10 @@ def main():
     server.max_cons_per_ip = 5
 
     # start ftp server
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print('exiting...')
 
 if __name__ == '__main__':
     main()

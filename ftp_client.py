@@ -1,6 +1,6 @@
 import ftplib
 
 server = ftplib.FTP()
-server.connect('127.0.0.1', 44333)
+server.connect('10.2.6.49', 8080)
 server.login('user', 'user')
 
